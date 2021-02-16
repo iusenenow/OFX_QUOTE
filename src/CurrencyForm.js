@@ -2,9 +2,9 @@ import React from 'react'
 import { useState, useContext } from 'react'
 import { FormContext } from './FormContext'
 import { Form, Button, Row, Col, InputGroup } from 'react-bootstrap'
+import { standardData } from './Currency';
 
-
-const CurrencyForm = (props) => {
+const CurrencyForm = props => {
   const [data, setData] = useState({})
   const [currencyData, setCurrencyData] = useContext(FormContext)
 
@@ -87,8 +87,18 @@ const CurrencyForm = (props) => {
         <Col md={6}>
           <Form.Group controlId='formGridFromCurrency'>
             <Form.Label>From Currency *</Form.Label>
-            <Form.Control as='select' required onChange={handleChange} value={data.fromCurrency || ""}>
-              <option>Australian dollar(AUD)</option>
+            <Form.Control
+              as='select'
+              name='fromCurrency'
+              onChange={handleChange}
+              value={data.fromCurrency || ""}
+              required
+            >
+              {standardData.map((currency, index) => (
+                <option key={index} value={currency.currency}>
+                  {currency.currencyName} [{currency.currency}]
+                </option>
+              ))}
             </Form.Control>
           </Form.Group>
         </Col>
@@ -96,8 +106,18 @@ const CurrencyForm = (props) => {
         <Col md={6}>
           <Form.Group controlId='formGridToCurrency'>
             <Form.Label>To Currency</Form.Label>
-            <Form.Control as='select' required onChange={handleChange} value={data.toCurrency || ""}>
-              <option>American dollar(AUD)</option>
+            <Form.Control
+              as='select'
+              name='toCurrency'
+              onChange={handleChange}
+              value={data.toCurrency || ""}
+              required
+            >
+              {standardData.map((currency, index) => (
+                <option key={index} value={currency.currency}>
+                  {currency.currencyName} [{currency.currency}]
+                </option>
+              ))}
             </Form.Control>
           </Form.Group>
         </Col>
@@ -116,14 +136,13 @@ const CurrencyForm = (props) => {
         </Form.Group>
       </Row>
 
-
       <Form.Row className="form-button">
         <Button variant="primary"
           type="submit"
           size="lg"
           block
         >
-          Get Quote
+          GET QUOTE
         </Button>
       </Form.Row>
     </Form>
