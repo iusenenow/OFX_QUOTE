@@ -9,6 +9,7 @@ const CurrencyResult = props => {
   const [fetchData, setFetchData] = useState({
     loading: true,
     urlData: {},
+    error: null
   })
 
   useEffect(() => {
@@ -38,9 +39,9 @@ const CurrencyResult = props => {
             <Card.Title>QFX Customer Rate</Card.Title>
             <Card.Title variant="primary">{fetchData.urlData.CustomerRate || <Spinner animation="border" size="sm" variant="primary" />}</Card.Title>
             <Card.Text>From</Card.Text>
-            <h3><Badge variant="info">{currencyData.fromCurrency}</Badge> {currencyData.amount}</h3>
+            <h3><Badge variant="info">{currencyData.fromCurrency}</Badge>{' '}{currencyData.amount}</h3>
             <Card.Text>To</Card.Text>
-            <Card.Title>{currencyData.toCurrency} {currencyData.amount * fetchData.urlData.CustomerRate || <Spinner animation="border" size="sm" variant="primary" />}</Card.Title>
+            <h3><Badge variant="info">{currencyData.toCurrency}</Badge>{' '}{currencyData.amount * fetchData.urlData.CustomerRate || <Spinner animation="border" size="sm" variant="primary" />}</h3>
             <Button onClick={handleClick} variant='primary' type='submit'>START NEW QUOTE</Button>
           </Card.Body>
         </Card>}

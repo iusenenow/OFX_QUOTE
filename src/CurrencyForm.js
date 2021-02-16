@@ -5,7 +5,16 @@ import { Form, Button, Row, Col, InputGroup } from 'react-bootstrap'
 import { standardData } from './Currency';
 
 const CurrencyForm = props => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState({
+    amount: "",
+    email: "",
+    firstname: "",
+    fromCurrency: "AUD",
+    lastname: "",
+    mobile: "",
+    toCurrency: "AUD"
+  })
+
   const [currencyData, setCurrencyData] = useContext(FormContext)
 
   const handleChange = e => {
@@ -33,7 +42,7 @@ const CurrencyForm = props => {
               name='firstname'
               placeholder='First Name'
               onChange={handleChange}
-              value={data.firstname || ""}
+              value={data.firstname}
             />
           </Form.Group>
         </Col>
@@ -46,7 +55,7 @@ const CurrencyForm = props => {
               placeholder='Last Name'
               name='lastname'
               onChange={handleChange}
-              value={data.lastname || ""}
+              value={data.lastname}
             />
           </Form.Group>
         </Col>
@@ -59,7 +68,7 @@ const CurrencyForm = props => {
             placeholder='Email'
             name='email'
             onChange={handleChange}
-            value={data.email || ""}
+            value={data.email}
           />
         </Form.Group>
       </Row>
@@ -72,12 +81,12 @@ const CurrencyForm = props => {
               <InputGroup.Text id='inputGroupPrepend'>+ 61 </InputGroup.Text>
             </InputGroup.Prepend>
             <Form.Control
-              type='text'
+              type='number'
               placeholder=''
               aria-describedby='inputGroupPrepend'
               name='mobile'
               onChange={handleChange}
-              value={data.mobile || ""}
+              value={data.mobile}
             />
           </InputGroup>
         </Form.Group>
@@ -91,7 +100,7 @@ const CurrencyForm = props => {
               as='select'
               name='fromCurrency'
               onChange={handleChange}
-              value={data.fromCurrency || ""}
+              value={data.fromCurrency}
               required
             >
               {standardData.map((currency, index) => (
@@ -105,12 +114,12 @@ const CurrencyForm = props => {
 
         <Col md={6}>
           <Form.Group controlId='formGridToCurrency'>
-            <Form.Label>To Currency</Form.Label>
+            <Form.Label>To Currency *</Form.Label>
             <Form.Control
               as='select'
               name='toCurrency'
               onChange={handleChange}
-              value={data.toCurrency || ""}
+              value={data.toCurrency}
               required
             >
               {standardData.map((currency, index) => (
@@ -130,7 +139,7 @@ const CurrencyForm = props => {
             name='amount'
             type='number'
             onChange={handleChange}
-            value={data.amount || ""}
+            value={data.amount}
             required
           />
         </Form.Group>
