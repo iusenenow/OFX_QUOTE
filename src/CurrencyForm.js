@@ -1,24 +1,24 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { FormContext } from './FormContext'
 import { Form, Button, Row, Col, InputGroup } from 'react-bootstrap'
 
 
-const CurrencyForm = ({ history }) => {
+const CurrencyForm = (props) => {
   const [data, setData] = useState({})
-
+  const [currencyData, setCurrencyData] = useContext(FormContext)
 
   const handleChange = e => {
     setData(prevData => ({
       ...prevData,
       [e.target.name]: e.target.value
     }))
-    console.log(data);
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    // add data to the 
-    history.push('/result')
+    setCurrencyData(data)
+    props.history.push('/result')
   }
 
   return (
