@@ -134,7 +134,7 @@ const CurrencyForm = props => {
 
       <Row>
         <Form.Group as={Col} controlId="formGridAmount">
-          <Form.Label>Amount</Form.Label>
+          <Form.Label>Amount *</Form.Label>
           <Form.Control
             name='amount'
             type='number'
