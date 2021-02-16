@@ -77,19 +77,9 @@ const CurrencyForm = props => {
         <Form.Group as={Col} controlId="formGridPhone">
           <Form.Label>Telephone/Mobile</Form.Label>
           <InputGroup>
-            <DropdownButton
-              as={InputGroup.Prepend}
-              variant="outline-primary"
-              title="+ 61"
-              id="inputGroupPrepend"
-            >
-              <Dropdown.Item>+ 1</Dropdown.Item>
-              <Dropdown.Item>+ 44</Dropdown.Item>
-              <Dropdown.Item>+ 91</Dropdown.Item>
-              <Dropdown.Item>+ 86</Dropdown.Item>
-              <Dropdown.Item>+ 65</Dropdown.Item>
-              <Dropdown.Item>+ 7</Dropdown.Item>
-            </DropdownButton>
+            <InputGroup.Prepend>
+              <InputGroup.Text id='inputGroupPrepend'>+ 61 </InputGroup.Text>
+            </InputGroup.Prepend>
             <Form.Control
               type='number'
               placeholder=''
