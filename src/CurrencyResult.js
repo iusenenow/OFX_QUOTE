@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect, useContext } from 'react'
-import { Spinner, Button, Card } from 'react-bootstrap'
+import { Spinner, Button, Card, Badge } from 'react-bootstrap'
 import { FormContext } from './FormContext'
 
 const CurrencyResult = props => {
@@ -38,7 +38,7 @@ const CurrencyResult = props => {
             <Card.Title>QFX Customer Rate</Card.Title>
             <Card.Title variant="primary">{fetchData.urlData.CustomerRate || <Spinner animation="border" size="sm" variant="primary" />}</Card.Title>
             <Card.Text>From</Card.Text>
-            <Card.Title>{currencyData.fromCurrency} {currencyData.amount}</Card.Title>
+            <h3><Badge variant="info">{currencyData.fromCurrency}</Badge> {currencyData.amount}</h3>
             <Card.Text>To</Card.Text>
             <Card.Title>{currencyData.toCurrency} {currencyData.amount * fetchData.urlData.CustomerRate || <Spinner animation="border" size="sm" variant="primary" />}</Card.Title>
             <Button onClick={handleClick} variant='primary' type='submit'>START NEW QUOTE</Button>
