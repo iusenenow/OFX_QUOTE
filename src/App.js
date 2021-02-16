@@ -7,13 +7,13 @@ import CurrencyResult from './CurrencyResult';
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <div className="App">
-          <h1>OFX Currency Converter</h1>
+      <div className="App">
+        <h2 className="title">OFX Currency Converter</h2>
+        <Switch>
           <Route exact path='/' component={CurrencyForm} />
           <Route exact path='/result' component={CurrencyResult} />
-        </div>
-      </Switch>
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

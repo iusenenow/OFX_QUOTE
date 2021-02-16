@@ -2,6 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vw;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+.App .title {
+  margin-bottom: 3rem;
+}
+
+.App Form .form-button {
+  margin-top: 1rem;
 }
